@@ -1,12 +1,17 @@
 #lendo a base de dados JSON
-
 import json
+from ex09_a import ARQUIVO_PRINCIPAL, pessoa, dumpador, resumo
 
-with open('C:\\Users\\Luis\\Downloads\\dados_pessoa.json', 'r') as arquivo_teste:
+dumpador()
+with open(ARQUIVO_PRINCIPAL, 'r') as arquivo_teste:
     dados_fisicos = json.load(arquivo_teste)
-    dados_finais = dados_fisicos(**dados_fisicos)
+    p1 = pessoa(**dados_fisicos[0])
+    p2 = pessoa(**dados_fisicos[1])
+    p3 = pessoa(**dados_fisicos[2])
 
-print(f'Nome: {dados_finais.nome}')
-print(f'Idade: {dados_finais.idade}')
-print(f'Porte fisico: {dados_finais.porte_fisico}')
-print(f'Cor dos olhos: {dados_finais.cor_olhos}')
+    print(p1.nome, p1.idade, p1.cor_olhos, p1.porte_fisico)
+    print(p2.nome, p2.idade, p2.cor_olhos, p2.porte_fisico)
+    print(p3.nome, p3.idade, p3.cor_olhos, p3.porte_fisico)
+    #nomes, idades etc se conectaando diretamente com a classe definida no arquivo anterior 
+
+
